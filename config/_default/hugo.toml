@@ -1,33 +1,61 @@
 # -------------------------------------------------------------------------------------
-# Hugo Configuration
-# See: https://gohugo.io/configuration/all/
+# Hugo 核心配置
 # -------------------------------------------------------------------------------------
 
-# website title
-title = "my"
-# Hostname (and path) to the root
+# 网站标题
+title = "我的赛博空间"
+# 你的真实域名 (请确保这是你从 Cloudflare 后台看到的那个链接)
 baseURL = "https://hugo-fixit-starter.pages.dev/"
-# theme list
-# theme = ["FixIt"] # enable in your site config file
-theme = ["github.com/hugo-fixit/FixIt"]
 
-# determines default content language ["en", "zh-cn", "fr", "pl", ...]
-defaultContentLanguage = "en"
-# language code ["en", "zh-CN", "fr", "pl", ...]
-languageCode = "en"
-# language name ["English", "简体中文", "Français", "Polski", ...]
-languageName = "English"
-# whether to include Chinese/Japanese/Korean
-hasCJKLanguage = false
-# copyright description used only for seo schema
-copyright = ""
-# whether to use robots.txt
+# -------------------------------------------------------------------------------------
+# 主题模块配置 (解决样式不显示的关键)
+# -------------------------------------------------------------------------------------
+[module]
+  [[module.imports]]
+    path = "github.com/hugo-fixit/FixIt"
+  [[module.imports]]
+    path = "github.com/hugo-fixit/shortcode-docs-bookmark"
+
+# -------------------------------------------------------------------------------------
+# 语言与搜索配置
+# -------------------------------------------------------------------------------------
+# 默认语言设为中文
+defaultContentLanguage = "zh-cn"
+languageCode = "zh-CN"
+languageName = "简体中文"
+hasCJKLanguage = true
+
+# -------------------------------------------------------------------------------------
+# 基础功能开关
+# -------------------------------------------------------------------------------------
+# 开启 robots.txt，方便搜索引擎收录
 enableRobotsTXT = true
-# whether to use git commit log
+# 开启 Git 信息显示
 enableGitInfo = true
-# whether to use emoji code
+# 开启 Emoji 表情支持
 enableEmoji = true
-# the main sections of a site
-# if set, the MainSections method on the Site object returns the given sections,
-# otherwise it returns the section with the most pages.
-# mainSections = ["posts"]
+
+# -------------------------------------------------------------------------------------
+# 路径逻辑修正 (双重保险)
+# -------------------------------------------------------------------------------------
+relativeURLs = true
+canonifyURLs = true
+
+[params]
+  # 网站默认主题模式 ("light", "dark", "auto")
+  defaultTheme = "auto"
+  # 公共作者信息
+  [params.author]
+    name = "站长"
+    link = "https://hugo-fixit-starter.pages.dev/"
+    avatar = ""
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "文章"
+    url = "/posts/"
+    title = ""
+    weight = 1
