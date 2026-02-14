@@ -4,11 +4,13 @@
 # -------------------------------------------------------------------------------------
 
 # website title
-title = ""
+title = "my"
 # Hostname (and path) to the root
 baseURL = "https://hugo-fixit-starter.pages.dev/"
 # theme list
 # theme = ["FixIt"] # enable in your site config file
+theme = ["github.com/hugo-fixit/FixIt"]
+
 # determines default content language ["en", "zh-cn", "fr", "pl", ...]
 defaultContentLanguage = "en"
 # language code ["en", "zh-CN", "fr", "pl", ...]
